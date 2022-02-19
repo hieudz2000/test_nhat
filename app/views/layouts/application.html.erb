@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <% if user_signed_in?%>
+      <p>xin chao , <%= current_user.email%></p>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <P>tro ve home </p>
+      <%= link_to "home", root_path %>
+
+    <% else %>
+      <%= link_to "サインイン chua dang nhap", new_user_session_path %>
+      <br>
+      <%= link_to "ユーザ登録", new_user_registration_path %>
+    <% end %>
+    <hr>
     <%= yield %>
   </body>
 </html>
